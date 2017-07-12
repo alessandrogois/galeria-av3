@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `fotos` (
-  `id_foto` int(11) NOT NULL DEFAULT '0' AUTO_INCREMENT,
+  `id_foto` int(11) NOT NULL DEFAULT '0000',
   `nome_foto` varchar(255) NOT NULL DEFAULT '',
   `email` varchar(99) NOT NULL,
   `imagem` longblob NOT NULL
