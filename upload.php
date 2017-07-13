@@ -1,10 +1,15 @@
 <?php
+function __autoload($class_name){
+    require_once 'classes/' . $class_name . '.php';
+}
+
+
 // Se não postar nada
 if ( ! isset( $_POST ) || empty( $_POST ) ) {
-	
+
 	// Mensagem para o usuário
 	echo 'Não há dados para upar!';
-	
+
 	// Mata o script
 	exit;
 }
@@ -13,21 +18,21 @@ if ( ! isset( $_POST ) || empty( $_POST ) ) {
 foreach ( $_POST as $chave => $valor ) {
 	// Cria as variáveis dinamicamente
 	$$chave = $valor;
-	
+
 	// Verifica campos em branco
 	if ( empty( $valor ) ) {
 		// Mensagem para o usuário
 		echo 'Existem campos em branco.';
-		
+
 		// Mata o script
 		exit;
 	}
 }
 
 // Verifica se todas as variáveis estão definidas
-if (  
-	   ! isset( $id_foto   )  
-	|| ! isset( $nome_foto ) 
+if (
+	   ! isset( $id_foto   )
+	|| ! isset( $nome_foto )
 	|| ! isset( $email     )
 	|| ! isset( $imagem    )
 ) {
@@ -45,7 +50,7 @@ $imagem = isset( $_FILES['imagem'] ) ? $_FILES['imagem'] : null;
 if ( empty( $imagem ) ) {
 	// Mensagem para o usuário
 	echo 'Envie sua foto.';
-	
+
 	// Mata o script
 	exit;
 }
@@ -60,7 +65,7 @@ $envia_imagem = $diretorio . $nome_imagem;
 if ( ! move_uploaded_file( $imagem_tmp , $envia_imagem ) ) {
 	// Mensagem para o usuário
 	echo 'Erro ao enviar foto.';
-	
+
 	// Mata o script
 	exit;
 }
@@ -75,7 +80,7 @@ $prepara = $conexao_pdo->prepare("
 		`nome_foto`,
 		`email`,
 		`imagem`
-	) 
+	)
 	VALUES
 	( ?, ?, ?, ?, ? )
 ");
@@ -85,19 +90,19 @@ $verifica = $prepara->execute(
 	array(
 		$id_foto,
 		$nome_foto,
-		$email,		
+		$email,
 		$envia_imagem
 	)
 );
 
 if ( $verifica ) {
 	echo 'OK';
-	
+
 	// Mata o script
 	exit;
 } else {
 	echo 'Erro ao enviar dados.';
-	
+
 	// Mata o script
 	exit;
 }
