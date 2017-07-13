@@ -29,7 +29,7 @@ foreach ( $_POST as $chave => $valor ) {
 	}
 }
 
-// Verifica se todas as variáveis estão definidas
+//Verifica se todas as variáveis estão definidas
 if (
 	   ! isset( $id_foto   )
 	|| ! isset( $nome_foto )
@@ -58,7 +58,7 @@ if ( empty( $imagem ) ) {
 // Dados da imagem
 $imagem_tmp   = $imagem['tmp_name'];
 $nome_imagem  = $imagem['name'];
-$diretorio    = '../imagens/';
+$diretorio    = '../img/';
 $envia_imagem = $diretorio . $nome_imagem;
 
 // Envia a foto
@@ -71,7 +71,7 @@ if ( ! move_uploaded_file( $imagem_tmp , $envia_imagem ) ) {
 }
 
 // Inclui o arquivo de conexão
-include('config.php');
+include('DB.php');
 
 // Prepara o envio
 $prepara = $conexao_pdo->prepare("
@@ -96,7 +96,7 @@ $verifica = $prepara->execute(
 );
 
 if ( $verifica ) {
-	echo 'OK';
+	echo 'Enviado!';
 
 	// Mata o script
 	exit;
