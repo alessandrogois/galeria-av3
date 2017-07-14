@@ -22,7 +22,7 @@
 
 
         <h1> GALERIA DE FOTOS </h1>
-        <form class="upload_foto" action="upload.php" method="post" enctype="multipart/form-data">
+        <form class="upload_foto" action="upload.php" method="post" id="upload" enctype="multipart/form-data">
             <br><br>
             <label for="id_foto"> Digite o ID: </label>
             <input type="text" class="id_foto" id="id_foto" name="id_foto" required> <br>
