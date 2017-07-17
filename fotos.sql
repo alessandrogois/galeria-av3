@@ -26,10 +26,10 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `fotos`
 --
 
-CREATE TABLE `fotos` (
+CREATE TABLE IF NOT EXISTS `fotos` (
   `id_foto` int(11) NOT NULL DEFAULT '0000',
   `nome_foto` varchar(255) NOT NULL DEFAULT '',
-  `email` varchar(99) NOT NULL,
+  `email` varchar(99) NOT NULL
   `imagem` longblob NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 

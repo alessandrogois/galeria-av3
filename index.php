@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,21 +23,21 @@
 
 
         <h1> GALERIA DE FOTOS </h1>
-        <form class="upload_foto" action="upload.php" method="post" id="upload" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             <br><br>
             <label for="id_foto"> Digite o ID: </label>
-            <input type="text" class="id_foto" id="id_foto" name="id_foto" required> <br>
+            <input type="text" class="id_foto" id="id_foto" name="id_foto"> <br>
 
             <label for="nome_foto"> Digite o Nome da foto: </label>
-            <input type="text" class="nome_foto" id="nome_foto" name="nome_foto" required> <br>
+            <input type="text" class="nome_foto" id="nome_foto" name="nome_foto"> <br>
 
             <label for="email"> Digite seu e-mail: </label>
-            <input type="text" class="email" id="email" name="email" required> <br>
+            <input type="text" class="email" id="email" name="email"> <br>
 
             <br>
 
             <label for="imagem"> Escolha sua foto: </label>
-            <input type="file" class="imagem" id="imagem" name="imagem" required> <br>
+            <input type="file" class="imagem" id="imagem" name="imagem"> <br>
             <br><br>
             <imput type="reset" value="Limpar">
 
@@ -49,8 +50,6 @@
                         <td> <img src="img/tigre.jpg"></td>
                         <td><img src="img/tigre2.jpg"></td>
                     </tr>
-
-
 
 
         </form>

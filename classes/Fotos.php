@@ -60,6 +60,5 @@ class Fotos extends Crud{
                 $stmt->bindParam(':email', $this->email);		
 		return $stmt->execute();
 
-	}
-
-}
+            }
+    }
